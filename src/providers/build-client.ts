@@ -9,10 +9,8 @@ const DateTransformer = {
   },
 };
 
-const BaseEntityTransformers = { createdAt: DateTransformer, modifiedAt: DateTransformer };
-
 const transformers = {
-  Slot: { ...BaseEntityTransformers, startTime: DateTransformer },
+  User: { dob: DateTransformer },
 };
 
 const transformerLink = createTransformerLink(transformers as any);

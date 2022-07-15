@@ -2,7 +2,7 @@ import React from 'react';
 import { useSearchUsersQuery } from 'src/generated-types';
 
 const defaultSearch = {
-  name: 'Simon',
+  lastName: 'Ver',
 };
 
 const HomeSceen: React.FC = () => {
@@ -12,9 +12,9 @@ const HomeSceen: React.FC = () => {
 
   return (
     <div>
-      {data.searchUsers?.map(({ name, age }) => (
-        <div key={name}>
-          <div>Name: {name}</div> <div>Age: {age}</div>
+      {data.searchUsers?.map(({ lastName, age, dob }) => (
+        <div key={lastName}>
+          <div>Name: {lastName}</div> <div>Age: {age}</div> <div>Age: {dob.toISOString()}</div>
         </div>
       ))}
     </div>

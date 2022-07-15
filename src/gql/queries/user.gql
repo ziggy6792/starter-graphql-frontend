@@ -1,6 +1,9 @@
 query searchUsers($input: SearchUserInput!) {
   searchUsers(input: $input) {
-    name
+    lastName
+    firstName
     age
+    dob
   }
 }
+

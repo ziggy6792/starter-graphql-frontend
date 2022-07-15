@@ -13,6 +13,8 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  /** The javascript `Date` as string. Type represents date and time as the ISO Date string. */
+  DateTime: Date;
 };
 
 export type Query = {
@@ -28,13 +30,16 @@ export type QuerySearchUsersArgs = {
 
 export type SearchUserInput = {
   age?: Maybe<Scalars['Int']>;
-  name: Scalars['String'];
+  firstName?: Maybe<Scalars['String']>;
+  lastName: Scalars['String'];
 };
 
 export type User = {
   __typename?: 'User';
   age: Scalars['Int'];
-  name: Scalars['String'];
+  dob: Scalars['DateTime'];
+  firstName: Scalars['String'];
+  lastName: Scalars['String'];
 };
 
 export type SearchUsersQueryVariables = Exact<{
@@ -42,14 +47,16 @@ export type SearchUsersQueryVariables = Exact<{
 }>;
 
 
-export type SearchUsersQuery = { __typename?: 'Query', searchUsers: Array<{ __typename?: 'User', name: string, age: number }> };
+export type SearchUsersQuery = { __typename?: 'Query', searchUsers: Array<{ __typename?: 'User', lastName: string, firstName: string, age: number, dob: Date }> };
 
 
 export const SearchUsersDocument = gql`
     query searchUsers($input: SearchUserInput!) {
   searchUsers(input: $input) {
-    name
+    lastName
+    firstName
     age
+    dob
   }
 }
     `;
