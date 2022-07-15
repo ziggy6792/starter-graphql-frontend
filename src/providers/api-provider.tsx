@@ -3,7 +3,7 @@ import React from 'react';
 import { ApolloProvider, createHttpLink } from '@apollo/client';
 import buildClient from './build-client';
 
-const client = buildClient(createHttpLink({ uri: 'http://localhost:4000/graphql' }));
+const client = buildClient(createHttpLink({ uri: 'http://localhost:4200/graphql' }));
 
 const ApiProvider: React.FC = ({ children }) => <ApolloProvider client={client}>{children}</ApolloProvider>;
 

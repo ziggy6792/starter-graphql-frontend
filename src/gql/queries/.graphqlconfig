@@ -4,7 +4,7 @@
   "extensions": {
     "endpoints": {
       "Auth None": {
-        "url": "http://localhost:4000/graphql",
+        "url": "http://localhost:4200/graphql",
         "headers": {
           "user-agent": "JS GraphQL"
         },

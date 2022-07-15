@@ -5,7 +5,7 @@
   "main": "builds/index.js",
   "scripts": {
     "start": "yarn run-p generate start:react",
-    "start:react": "react-scripts start",
+    "start:react": "PORT=3002 react-scripts start",
     "generate": "graphql-codegen --watch",
     "build": "react-scripts --max_old_space_size=6144 build",
     "test": "react-scripts test",

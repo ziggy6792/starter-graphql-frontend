@@ -1,17 +1,5 @@
-query listClips($filter: ListClipsFilter){
-  listClips(filter: $filter){
-    items {
-      ...ClipTile
-    }
+query searchUsers($input: SearchUserInput!) {
+  searchUsers(input: $input) {
+    name
   }
-}
-
-fragment  ClipTile on Clip {
-  id
-  name
-  description
-  startTimecode
-  endTimecode
-  standard
-  definition
 }
