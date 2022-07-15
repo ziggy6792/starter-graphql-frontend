@@ -42,13 +42,14 @@ export type SearchUsersQueryVariables = Exact<{
 }>;
 
 
-export type SearchUsersQuery = { __typename?: 'Query', searchUsers: Array<{ __typename?: 'User', name: string }> };
+export type SearchUsersQuery = { __typename?: 'Query', searchUsers: Array<{ __typename?: 'User', name: string, age: number }> };
 
 
 export const SearchUsersDocument = gql`
     query searchUsers($input: SearchUserInput!) {
   searchUsers(input: $input) {
     name
+    age
   }
 }
     `;
