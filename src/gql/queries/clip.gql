@@ -1,0 +1,17 @@
+query listClips($filter: ListClipsFilter){
+  listClips(filter: $filter){
+    items {
+      ...ClipTile
+    }
+  }
+}
+
+fragment  ClipTile on Clip {
+  id
+  name
+  description
+  startTimecode
+  endTimecode
+  standard
+  definition
+}

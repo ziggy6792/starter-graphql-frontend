@@ -1,0 +1,20 @@
+schema: 'http://localhost:4000/graphql'
+documents: ./src/gql/**/**.gql
+generates:
+  src/generated/introspection.json:
+    plugins:
+      - introspection
+  src/generated-types.tsx:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      scalars:
+        DateTime: Date
+      skipTypename: false
+      withHooks: true
+      withHOC: false
+      withComponent: false
+      # apolloReactHooksImportFrom: '@apollo/react-hooks'
+      apolloReactCommonImportFrom: '@apollo/client'

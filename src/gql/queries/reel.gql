@@ -1,0 +1,33 @@
+query getReel{
+  getReel{
+    ...ReelDetails
+  }
+}
+
+fragment ReelSummary on Reel {
+  id
+  name
+  description
+  standard
+  definition
+}
+
+fragment ReelDetails on Reel {
+  ...ReelSummary
+  timelineClips{
+    endTimecode
+    items{
+      startTimecode
+      endTimecode
+      clip{
+        ...ClipTile
+      }
+    }
+  }
+}
+
+mutation updateReel($input: UpdateReelInput!){
+  updateReel(input: $input){
+    ...ReelSummary
+  }
+}
